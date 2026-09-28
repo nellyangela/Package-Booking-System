@@ -1,0 +1,563 @@
+<!---GROUP MEMBERS -->
+<!---FE NELLY ANGELA ANAK DEMANG (20DIT24F2001)-->
+<!---ARABELLA ANAK SIKUK (20DIT24F2012)-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOUR PACKAGE BOOKING SYSTEM</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <style>
+        html,body {
+            height: 100%;
+            margin: 0;
+        }
+        #home {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: url('image/srwk.jpg') no-repeat center center;
+            background-size: cover;
+        }
+
+        #home .overlay {
+            flex: 1;
+            background-color: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            color: white;
+            padding: 60px 20px;
+        }
+        #footer {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        .hero-title {
+            font-size: 60px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            margin-top: 50px;
+        }
+        .package-card {
+            margin: 15px 0;
+            padding: 18px;
+            border-radius: 10px;
+            background: #f5f5f5;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+        .package-card img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d35400;
+        }
+        .required {
+            color: red;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .success {
+            display: none;
+            color: green;
+            background: #e8f5e9;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!--HOME PAGE-->
+    <div data-role="page" id="home">
+        <!--HEADER -->
+        <div data-role="header" data-theme="b">
+            <h1>TOUR PACKAGE BOOKING SYSTEM</h1>
+            <!---NAVBAR-->
+            <div data-role="navbar">
+                <ul>
+                    <li>
+                        <a href="#home" class="ui-btn-active" data-transition="slide">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#packages" data-transition="slide">Packages</a>
+                    </li>
+
+                    <li>
+                        <a href="#booking" data-transition="slide">Booking</a>
+                    </li>
+
+                    <li>
+                        <a href="#contact" data-transition="slide">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="overlay">
+            <h1 class="hero-title">EXPLORE SARAWAK</h1>
+            <p>Discover amazing tours around Sarawak</p>
+
+            <div class="highlights" style="text-align:center; margin:30px 0;">
+                <div>
+                    <span>🚌</span>
+                    <p>Easy Booking</p>
+                </div>
+                <div>
+                    <span>🏞️</span>
+                    <p>Local Experiences</p>
+                </div>
+                <div>
+                    <span>💳</span>
+                    <p>Secure Payment</p>
+                </div>
+                <div>
+                    <span>📱</span>
+                    <p>Mobile Friendly</p>
+                </div>
+            </div>
+        </div>
+        <!---FOOTER--->
+        <footer id="footer">
+            <h4>&copy; 2026 TOUR PACKAGE BOOKING SYSTEM</h4>
+        </footer>
+    </div>
+
+    <!---TOUR PACKAGES--->
+    <div data-role="page" id="packages">
+
+        <!--HEADER-->
+        <div data-role="header" data-theme="b">
+            <h1>Sarawak Packages Tour</h1>
+        </div>
+
+        <!-- NAVBAR -->
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home" data-transition="slide">Home</a></li>
+                <li><a href="#packages" class="ui-btn-active" data-transition="slide">Packages</a></li>
+                <li><a href="#booking" data-transition="slide">Booking</a></li>
+                <li><a href="#contact" data-transition="slide">Contact</a></li>
+            </ul>
+        </div>
+
+        <!--CONTENT-->
+        <div role="main" class="ui-content">
+            <h2>Available Sarawak Package Tour</h2>
+
+            <!-- CITY TOUR -->
+            <div class="package-card">
+                <h2>City Tour</h2>
+                <img src="image/city1.jpg" alt="Kuching Heritage">
+                <p>
+                    Explore Kuching city, local heritage and Sarawak culture.
+                </p>
+                <p>
+                    Price:
+                    <span class="price" style="text-decoration: underline;">RM350 / person</span>
+                </p>
+                <p>
+                    Duration:
+                    <span style="text-decoration: underline;">4 days 3 nights</span>
+                </p>
+                <a href="#popoverCity" data-rel="popup" data-position-to="window" data-transition="pop"
+                    class="ui-btn ui-btn-inline">More Information</a>
+                <a href="#booking" data-transition="slide" class="ui-btn ui-btn-b ui-btn-inline">Book Now</a>
+
+                <!-- CITY POPUP -->
+                <div data-role="popup" id="popoverCity" class="ui-content" data-overlay-theme="b"
+                    style="max-width:350px;">
+                    <a href="#" data-rel="back"
+                        class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+                    <h4>City Tour</h4>
+                    <p>
+                        <strong>Destination:</strong>
+                        City Waterfront, Main Bazaar and Carpenter Street.
+                    </p>
+                    <p>
+                        <strong>Activities:</strong>
+                        Waterfront walk, food exploration and shopping stop.
+                    </p>
+                    <p>
+                        <strong>Facilities:</strong>
+                        Hotel accommodation and transportation.
+                    </p>
+                </div>
+            </div>
+
+            <!-- NATURE ADVENTURE -->
+            <div class="package-card">
+                <h2>Nature Adventure</h2>
+                <img src="image/nature2.jpg" alt="Nature Adventure">
+                <p>
+                    Enjoy nature, wildlife and beautiful rainforest scenery.
+                </p>
+                <p>
+                    Price:
+                    <span class="price" style="text-decoration: underline;">RM450 / person</span>
+                </p>
+                <p>
+                    Duration:
+                    <span style="text-decoration: underline;">2 days 1 night</span>
+                </p>
+                <a href="#popoverNature" data-rel="popup" data-position-to="window" data-transition="pop"
+                    class="ui-btn ui-btn-inline">More Information</a>
+                <a href="#booking" data-transition="slide" class="ui-btn ui-btn-b ui-btn-inline">Book Now</a>
+
+                <!-- NATURE POPUP -->
+                <div data-role="popup" id="popoverNature" class="ui-content" data-overlay-theme="b"
+                    style="max-width:350px;">
+                    <a href="#" data-rel="back"
+                        class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+                    <h4>Nature Adventure</h4>
+                    <p>
+                        <strong>Destination:</strong> Bengoh Dam, Bako National Park and Semenggoh Wildlife Centre.
+                    </p>
+                    <p>
+                        <strong>Activities:</strong> Boat ride, cross bamboo bridges and explore the rainforest.
+                    </p>
+                    <p>
+                        <strong>Facilities:</strong> Transportation, homestay and tour guide.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CULTURE EXPERIENCE -->
+            <div class="package-card">
+                <h2>Culture Experience</h2>
+                <img src="image/culture2.jpg" alt="Culture Experience">
+                <p>
+                    Experience Sarawak culture, traditions and local heritage.
+                </p>
+                <p>
+                    Price:
+                    <span class="price" style="text-decoration: underline;">RM250 / person</span>
+                </p>
+                <p>
+                    Duration:
+                    <span style="text-decoration: underline;">Half-day itinerary</span>
+                </p>
+                <a href="#popoverCulture" data-rel="popup" data-position-to="window" data-transition="pop"
+                    class="ui-btn ui-btn-inline">More Information</a>
+                <a href="#booking" data-transition="slide" class="ui-btn ui-btn-b ui-btn-inline">Book Now</a>
+
+                <!-- CULTURE POPUP -->
+                <div data-role="popup" id="popoverCulture" class="ui-content" data-overlay-theme="b"
+                    style="max-width:350px;">
+                    <a href="#" data-rel="back"
+                        class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+                    <h4>Culture Experience</h4>
+                    <p>
+                        <strong>Destination:</strong>Sarawak Cultural Village and Borneo Culture Museum.
+                    </p>
+                    <p>
+                        <strong>Activities:</strong>Storytelling sessions, traditional games and cultural performances.
+                    </p>
+                    <p>
+                        <strong>Facilities:</strong> Cafe, souvenir shop and workshop areas.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER-->
+        <footer id="footer">
+            <h4>&copy; 2026 TOUR PACKAGE BOOKING SYSTEM</h4>
+        </footer>
+    </div>
+
+    <!--BOOKING -->
+    <div data-role="page" id="booking">
+        <!-- HEADER-->
+        <div data-role="header" data-theme="b">
+            <h1>Booking</h1>
+        </div>
+
+        <!-- NAVBAR -->
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home" data-transition="slide">Home</a></li>
+                <li><a href="#packages" data-transition="slide">Packages</a></li>
+                <li><a href="#booking" class="ui-btn-active" data-transition="slide">Booking</a></li>
+                <li><a href="#contact" data-transition="slide">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- CONTENT -->
+        <div role="main" class="ui-content">
+            <h2>Tour Package Booking</h2>
+
+            <!-- SUCCESS MESSAGE -->
+            <div id="bookingSuccess" class="success">
+                Booking submitted successfully!
+                Thank you for choosing Sarawak Explorer.
+            </div>
+
+            <!-- BOOKING FORM -->
+            <form id="bookingForm" onsubmit="return validateBooking();">
+
+                <!-- FULL NAME -->
+                <label for="bookingName">
+                    Full Name
+                    <span class="required">*</span>
+                </label>
+                <input type="text" id="bookingName" name="bookingName" placeholder="Enter your full name">
+                <div id="bookingNameError" class="error"></div>
+
+                <!-- PHONE -->
+                <label for="bookingPhone">
+                    Phone Number
+                    <span class="required">*</span>
+                </label>
+                <input type="number" id="bookingPhone" name="bookingPhone" placeholder="e.g. 0123456789">
+                <div id="bookingPhoneError" class="error"></div>
+
+                <!-- EMAIL -->
+                <label for="bookingEmail">
+                    Email
+                    <span class="required">*</span>
+                </label>
+                <input type="email" id="bookingEmail" name="bookingEmail" placeholder="example@email.com">
+                <div id="bookingEmailError" class="error"></div>
+
+                <!-- TRAVEL DATE -->
+                <label for="travelDate">
+                    Travel Date
+                    <span class="required">*</span>
+                </label>
+                <input type="date" id="travelDate" name="travelDate">
+                <div id="travelDateError" class="error"></div>
+
+                <!-- PARTICIPANTS -->
+                <label for="participants">
+                    Number of Participants
+                    <span class="required">*</span>
+                </label>
+                <input type="number" id="participants" name="participants" min="1" max="20"
+                    placeholder="Number of people">
+                <div id="participantsError" class="error"></div>
+
+                <!-- PACKAGE -->
+                <label for="package">
+                    Tour Package
+                    <span class="required">*</span>
+                </label>
+                <select id="package" name="package">
+                    <option value="">-- Select Package --</option>
+                    <option value="City Tour">City Tour - RM350</option>
+                    <option value="Nature Adventure">Nature Adventure - RM450</option>
+                    <option value="Culture Experience">Culture Experience - RM250</option>
+                </select>
+                <div id="packageError" class="error"></div>
+
+                <!-- SUBMIT BUTTON -->
+                <button type="submit" class="ui-btn ui-btn-b">Submit Booking</button>
+            </form>
+        </div>
+
+        <!---FOOTER--->
+        <footer id="footer">
+            <h4>&copy; 2026 TOUR PACKAGE BOOKING SYSTEM</h4>
+        </footer>
+    </div>
+
+    <!--CONTACT PAGE-->
+    <div data-role="page" id="contact">
+        <div data-role="header" data-theme="b">
+            <h1>Contact Us</h1>
+        </div>
+
+        <!-- NAVBAR -->
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#home" data-transition="slide">Home</a></li>
+                <li><a href="#packages" data-transition="slide">Packages</a></li>
+                <li><a href="#booking" data-transition="slide">Booking</a></li>
+                <li><a href="#contact" class="ui-btn-active" data-transition="slide">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- CONTENT CONTACT US -->
+        <div data-role="content">
+            <h2>Get in Touch</h2>
+            <p>We'd love to hear from you! Please feel free to contact us with any questions or feedback.</p>
+
+            <!-- CONTACT FORM -->
+            <form id="contactForm" onsubmit="return submitContact();">
+
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" placeholder="Your Name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="Your Email" required>
+
+                <label for="message">Message:</label>
+                <textarea name="message" id="message" placeholder="Type your message here..." required></textarea>
+
+                <!-- ETHICAL CONSENT CHECKBOX -->
+                <label>
+                    <input type="checkbox" id="consent" required>
+                    I agree to privacy terms
+                </label>
+
+                <input type="submit" value="Send Message" data-theme="b">
+            </form>
+
+            <div id="successMsg" style="display:none; color:green; margin-top:15px;">
+                ✅ Your message has been received. Thank you!
+            </div>
+        </div>
+
+        <!---FOOTER--->
+        <footer id="footer">
+            <h4>&copy; 2026 TOUR PACKAGE BOOKING SYSTEM</h4>
+        </footer>
+    </div>
+
+    <script>
+        function submitContact() {
+
+            let consent = document.getElementById("consent").checked;
+
+            if (!consent) {
+                alert("Please agree to privacy terms before submitting.");
+                return false;
+            }
+
+            let msg = document.getElementById("successMsg");
+            msg.style.display = "block";
+
+            setTimeout(function () {
+                msg.style.display = "none";
+            }, 3000);
+
+            document.getElementById("contactForm").reset();
+
+            return false;
+        }
+        function validateBooking() {
+            <!--CLEAR PREVIOUS ERROR MESSAGES-->
+            document.getElementById("bookingNameError").textContent = "";
+            document.getElementById("bookingPhoneError").textContent = "";
+            document.getElementById("bookingEmailError").textContent = "";
+            document.getElementById("travelDateError").textContent = "";
+            document.getElementById("participantsError").textContent = "";
+            document.getElementById("packageError").textContent = "";
+
+            document.getElementById("bookingSuccess").style.display = "none";
+
+            <!-- GET FORM VALUES-->
+            var name =
+                document.getElementById("bookingName").value.trim();
+
+            var phone =
+                document.getElementById("bookingPhone").value.trim();
+
+            var email =
+                document.getElementById("bookingEmail").value.trim();
+
+            var date =
+                document.getElementById("travelDate").value;
+
+            var participants =
+                document.getElementById("participants").value;
+
+            var packageName =
+                document.getElementById("package").value;
+
+            var valid = true;
+
+            <!--NAME VALIDATION-->
+            if (name === "") {
+                document.getElementById("bookingNameError").textContent =
+                    "Please enter your name.";
+                valid = false;
+            }
+            else if (name.length < 2) {
+                document.getElementById("bookingNameError").textContent =
+                    "Name must contain at least 2 characters.";
+                valid = false;
+            }
+
+            <!--PHONE VALIDATION-->
+            var phonePattern = /^[0-9]{9,12}$/;
+            if (phone === "") {
+                document.getElementById("bookingPhoneError").textContent =
+                    "Please enter your phone number.";
+                valid = false;
+            }
+            else if (!phonePattern.test(phone)) {
+                document.getElementById("bookingPhoneError").textContent =
+                    "Phone number must contain 9 to 12 digits.";
+                valid = false;
+            }
+
+            <!--EMAIL VALIDATION-->
+            var emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email === "") {
+                document.getElementById("bookingEmailError").textContent =
+                    "Please enter your email.";
+                valid = false;
+            }
+            else if (!emailPattern.test(email)) {
+                document.getElementById("bookingEmailError").textContent =
+                    "Please enter a valid email address.";
+                valid = false;
+            }
+
+            <!--DATE VALIDATION-->
+            if (date === "") {
+                document.getElementById("travelDateError").textContent =
+                    "Please select your travel date.";
+                valid = false;
+            }
+
+            <!--PARTICIPANTS VALIDATION-->
+            if (participants === "") {
+                document.getElementById("participantsError").textContent =
+                    "Please enter number of participants.";
+                valid = false;
+            }
+            else if (participants < 1 || participants > 20) {
+                document.getElementById("participantsError").textContent =
+                    "Participants must be between 1 and 20.";
+                valid = false;
+            }
+
+            <!--PACKAGE VALIDATION-->
+            if (packageName === "") {
+                document.getElementById("packageError").textContent =
+                    "Please select a tour package.";
+                valid = false;
+            }
+
+            <!--SUCCESS-->
+            if (valid === true) {
+                document.getElementById("bookingSuccess").style.display =
+                    "block";
+                document.getElementById("bookingForm").reset();
+                return false;
+            }
+            return false;
+        }
+    </script>
+
+</body>
+
+</html>
